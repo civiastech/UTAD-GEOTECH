@@ -53,10 +53,10 @@ if uploaded_file is not None:
     if session:
         with st.spinner("🔍 Running inference and processing detections..."):
             img = np.array(image)
-             img_resized = PILImage.fromarray(img).resize((640, 640))
+            img_resized = PILImage.fromarray(img).resize((640, 640))
             img_resized = np.array(img_resized)
             img_processed = img_resized[:, :, ::-1].transpose(2, 0, 1)
-            img_processed = np.ascontiguousarray(img_processed).astype(np.float32) / 255.0d, 0)
+            img_processed = np.ascontiguousarray(img_processed).astype(np.float32) / 255.0
 
             try:
                 onnx_inputs = {input_name: img_processed}
@@ -279,5 +279,3 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-
