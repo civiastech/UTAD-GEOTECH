@@ -57,6 +57,7 @@ if uploaded_file is not None:
             img_resized = np.array(img_resized)
             img_processed = img_resized[:, :, ::-1].transpose(2, 0, 1)
             img_processed = np.ascontiguousarray(img_processed).astype(np.float32) / 255.0
+            img_processed = np.expand_dims(img_processed, 0)
 
             try:
                 onnx_inputs = {input_name: img_processed}
@@ -279,3 +280,5 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+
