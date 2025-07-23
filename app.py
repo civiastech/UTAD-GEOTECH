@@ -167,7 +167,9 @@ if uploaded_file is not None:
                         except IOError:
                             font = ImageFont.load_default()
 
-                        text_width, text_height = draw.textsize(label, font=font)
+                        left, top, right, bottom = draw.textbbox((0, 0), label, font=font)
+                        text_width = right - left
+                        text_height = bottom - top
                         text_x = box[0]
                         text_y = box[1] - text_height - 5 if box[1] - text_height - 5 > 0 else box[1] + 5 # Position above or below box
 
