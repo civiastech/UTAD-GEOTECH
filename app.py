@@ -163,7 +163,7 @@ if uploaded_file is not None:
 
                         # Draw text with background for better visibility
                         try:
-                            font = ImageFont.truetype("arial.ttf", 50) # Adjust font size as needed
+                            font = ImageFont.truetype("arial.ttf", 20) # Adjust font size as needed
                         except IOError:
                             font = ImageFont.load_default()
 
